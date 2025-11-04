@@ -1,0 +1,137 @@
+
+:root {
+    --color-primary-accent: #A6808C; 
+    --color-secondary-dark: #565264; 
+    --color-background-light: #D6CFCB; 
+    --color-card-bg: #CCB7AE; 
+    
+   
+    --color-completed: #198754; 
+    --color-pending: #6c757d; 
+}
+
+
+body {
+    background-color: var(--color-background-light); 
+    font-family: 'Inter', sans-serif;
+    color: var(--color-secondary-dark); 
+}
+
+h1 {
+    color: var(--color-secondary-dark);
+    margin-bottom: 25px;
+    font-weight: 700;
+    font-family: 'Inter', sans-serif;
+}
+
+
+.table {
+    border: 1px solid var(--color-card-bg);
+    font-family: 'Inter', sans-serif;
+}
+
+.table thead th {
+    background-color: var(--color-secondary-dark); 
+    color: var(--color-background-light); 
+    border-bottom: 2px solid var(--color-primary-accent); 
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+}
+
+.table tbody tr {
+    background-color: white !important;
+}
+
+.table tbody tr td {
+    background-color: white !important;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+}
+
+.table-striped > tbody > tr:nth-of-type(odd) > * {
+    background-color: white !important;
+}
+
+.table-striped > tbody > tr:nth-of-type(even) > * {
+    background-color: white !important;
+}
+
+
+.table tbody tr {
+    border-bottom: 1px solid #dee2e6;
+}
+
+
+.btn-info {
+    background-color: var(--color-primary-accent); 
+    border-color: var(--color-primary-accent);
+    color: white !important; 
+    font-weight: 500;
+    transition: background-color 0.2s;
+    font-family: 'Inter', sans-serif;
+}
+
+.btn-info:hover {
+    background-color: #926f7a; 
+    border-color: #926f7a;
+    color: white !important;
+}
+
+
+.modal-content {
+    background-color: var(--color-card-bg);
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+}
+
+.modal-header {
+    border-bottom: 1px solid var(--color-primary-accent);
+    font-family: 'Inter', sans-serif;
+}
+
+.modal-title {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+}
+
+.list-group-item {
+    background-color: var(--color-card-bg);
+    font-family: 'Inter', sans-serif;
+    border: 1px solid rgba(0,0,0,0.1);
+    font-weight: 400;
+}
+
+
+.badge.bg-success {
+    background-color: var(--color-completed) !important;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+}
+
+.badge.bg-secondary {
+    background-color: var(--color-pending) !important;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+}
+
+.table th,
+.table td,
+.table button,
+.table .badge {
+    font-family: 'Inter', sans-serif;
+}
+
+
+.btn-secondary {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+}
+
+
+.list-group-item strong {
+    font-weight: 600;
+}
+
+.list-group-item small {
+    font-weight: 400;
+}
