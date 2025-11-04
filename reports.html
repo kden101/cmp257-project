@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reports & Analytics - SupplyLink Admin</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+<script src="libs/Chart.min.js"></script>   <!-- chart library -->
+<script src="js/data.js"></script>          <!-- shared dummy data -->
+
+</head>
+<body class="p-4">
+
+  <h2>📊 Reports & Analytics</h2>
+  <p class="text-muted">View insights and performance data</p>
+
+  <div class="row">
+    <!-- Orders per Month Chart -->
+    <div class="col-md-6 mb-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Orders per Month</h5>
+          <canvas id="ordersChart"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <!-- Fastest Suppliers Chart -->
+    <div class="col-md-6 mb-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Fastest Suppliers</h5>
+          <canvas id="suppliersChart"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Summary Table -->
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Quick Statistics</h5>
+      <table class="table table-striped">
+        <tr>
+          <th>Metric</th>
+          <th>Value</th>
+        </tr>
+        <tr>
+          <td>Total Orders This Month</td>
+          <td>42</td>
+        </tr>
+        <tr>
+          <td>Average Delivery Time</td>
+          <td>4.5 days</td>
+        </tr>
+        <tr>
+          <td>Orders in Production</td>
+          <td>8</td>
+        </tr>
+        <tr>
+          <td>Completed Orders</td>
+          <td>34</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+<script src="/reports.js"></script></body>
+</html>

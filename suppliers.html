@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Supplier Orders - SupplyLink Admin</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="suppliers.js"></script>
+</head>
+<body class="p-4">
+
+  <h2>Supplier Orders</h2>
+  <p class="text-muted">Track and add supplier orders</p>
+
+  <!-- Order Form -->
+  <form id="orderForm" class="mb-4">
+    <div class="row g-3">
+      <div class="col-md-3">
+        <label>Material:</label>
+        <select id="material" class="form-select">
+          <option value="">Select...</option>
+          <option value="Steel Sheets">Steel Sheets</option>
+          <option value="Aluminum Bars">Aluminum Bars</option>
+          <option value="Copper Wire">Copper Wire</option>
+        </select>
+      </div>
+
+      <div class="col-md-2">
+        <label>Quantity (kg):</label>
+        <input type="number" id="quantity" class="form-control">
+      </div>
+
+      <div class="col-md-3">
+        <label>Supplier:</label>
+        <select id="supplier" class="form-select">
+          <option value="">Select...</option>
+          <option value="ABC Metals Ltd">ABC Metals Ltd</option>
+          <option value="Global Supplies Co">Global Supplies Co</option>
+          <option value="Prime Materials Inc">Prime Materials Inc</option>
+        </select>
+      </div>
+
+      <div class="col-md-3">
+        <label>Expected Delivery:</label>
+        <input type="date" id="deliveryDate" class="form-control">
+      </div>
+
+      <div class="col-md-1 d-flex align-items-end">
+        <button type="button" class="btn btn-primary w-100" onclick="addOrder()">Add</button>
+      </div>
+    </div>
+  </form>
+
+  <!-- Table -->
+  <table class="table table-bordered" id="ordersTable">
+    <tr class="table-dark">
+      <th>Order ID</th>
+      <th>Material</th>
+      <th>Quantity</th>
+      <th>Supplier</th>
+      <th>Expected Delivery</th>
+      <th>Status</th>
+    </tr>
+
+    <tr>
+      <td>SO-1001</td>
+      <td>Steel Sheets</td>
+      <td>500</td>
+      <td>ABC Metals Ltd</td>
+      <td>2025-11-05</td>
+      <!-- FIXED: Added (this) parameter -->
+      <td>In Transit <button onclick="markDelivered(this)">✔</button></td>
+    </tr>
+  </table>
+
+</body>
+</html>
