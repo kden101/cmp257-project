@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Orders - Admin Dashboard</title>
+
+    <!-- Bootstrap CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" xintegrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    
+    <!-- Bootstrap Icons CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts - Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- 
+    This page assumes you are linking your main stylesheet.
+    These styles are consistent with your admin theme.
+    -->
+    <style>
+        /* Styles from your main stylesheet */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #D6CFCB;
+            color: #565264;
+            overflow-x: hidden;
+        }
+
+        .navbar {
+            background-color: #706677;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+        }
+
+        .navbar-brand {
+            color: #FFFFFF;
+            font-weight: 700;
+        }
+
+        .navbar-brand:hover {
+            color: #CCB7AE;
+        }
+
+        .navbar .nav-link {
+            color: #D6CFCB;
+            font-weight: 500;
+            margin-right: 0.5rem;
+        }
+
+        .navbar .nav-link:hover,
+        .navbar .nav-link:focus {
+            color: #FFFFFF;
+        }
+
+        .navbar .nav-link.active {
+            color: #FFFFFF;
+            font-weight: 700;
+        }
+        
+        .navbar .btn-outline-light {
+            color: #D6CFCB;
+            border-color: #D6CFCB;
+        }
+
+        .navbar .btn-outline-light:hover {
+            color: #706677;
+            background-color: #D6CFCB;
+            border-color: #D6CFCB;
+        }
+        
+        h1, h2, h4, h5 {
+            font-weight: 700;
+            color: #565264;
+        }
+
+        /* Pink Button Style */
+        .btn-pink {
+            background-color: #A6808C;
+            color: #FFFFFF;
+            font-weight: 500;
+            border: none;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .btn-pink:hover {
+            background-color: #565264;
+            color: #FFFFFF;
+            box-shadow: 0 4px 12px rgba(86, 82, 100, 0.2);
+        }
+        
+        /* Table Styles */
+        .table {
+            background-color: #FFFFFF;
+            border-color: #CCB7AE;
+        }
+        
+        .table thead th {
+            color: #565264;
+            background-color: #fdfbfb;
+            border-bottom-width: 2px;
+            border-color: #CCB7AE;
+        }
+        
+        .table tbody tr:hover {
+            background-color: #f8f5f4;
+        }
+        
+        .table td, .table th {
+            vertical-align: middle;
+        }
+        
+        /* Status Badge Styles (Kept in case you want to use them elsewhere) */
+        .badge.status-processing {
+            background-color: #CCB7AE;
+            color: #706677;
+        }
+        
+        .badge.status-shipped {
+            background-color: #A6808C;
+            color: #FFFFFF;
+        }
+        
+        .badge.status-delivered {
+            background-color: #706677;
+            color: #FFFFFF;
+        }
+        
+        .badge.status-cancelled {
+            background-color: #565264;
+            color: #D6CFCB;
+        }
+        
+        .table .form-select-sm {
+            min-width: 120px; /* Give dropdowns a consistent width */
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Admin Navigation Bar -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="admin_dashboard.html">LOGISTICS CO. - ADMIN</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#adminNavbar" aria-controls="adminNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="adminNavbar">
+                <!-- Left-side Admin Nav Links -->
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="admin_dashboard.html">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="./Manage_Order.html">Manage Orders</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Production_log.html">Production Log</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="suppliers.html">Suppliers</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="reports.html">Reports</a>
+                    </li>
+                </ul>
+                
+                <!-- Right-side Log Out -->
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <i class="bi bi-box-arrow-right me-1"></i> Log Out
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="container my-5">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h1>Manage Orders</h1>
+        </div>
+        
+        <!-- Orders Table -->
+        <div class="card shadow-sm" style="border-color: #CCB7AE;">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover align-middle">
+                        <thead class="table-light">
+                            <tr>
+                                <th scope="col">Order ID</th>
+                                <th scope="col">Customer</th>
+                                <th scope="col">Date</th>
+                                <th scope="col">Status</th>
+                                <th scope="col" class="text-end">Total</th>
+                                <th scope="col" class="text-center">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Mock Order 1 -->
+                            <tr>
+                                <th scope="row">#ORD-1024</th>
+                                <td>Alice Smith</td>
+                                <td>2025-10-28</td>
+                                <td>
+                                    <select class="form-select form-select-sm" aria-label="Order status">
+                                        <option value="processing">Processing</option>
+                                        <option value="shipped" selected>Shipped</option>
+                                        <option value="delivered">Delivered</option>
+                                        <option value="cancelled">Cancelled</option>
+                                    </select>
+                                </td>
+                                <td class="text-end">$450.00</td>
+                                <td class="text-center">
+                                    <button class="btn btn-sm btn-pink">Submit</button>
+                                </td>
+                            </tr>
+                            <!-- Mock Order 2 -->
+                            <tr>
+                                <th scope="row">#ORD-1023</th>
+                                <td>Bob Johnson</td>
+                                <td>2025-10-27</td>
+                                <td>
+                                    <select class="form-select form-select-sm" aria-label="Order status">
+                                        <option value="processing" selected>Processing</option>
+                                        <option value="shipped">Shipped</option>
+                                        <option value="delivered">Delivered</option>
+                                        <option value="cancelled">Cancelled</option>
+                                    </select>
+                                </td>
+                                <td class="text-end">$120.50</td>
+                                <td class="text-center">
+                                    <button class="btn btn-sm btn-pink">Submit</button>
+                                </td>
+                            </tr>
+                            <!-- Mock Order 3 -->
+                            <tr>
+                                <th scope="row">#ORD-1022</th>
+                                <td>Carol Williams</td>
+                                <td>2025-10-25</td>
+                                <td>
+                                    <select class="form-select form-select-sm" aria-label="Order status">
+                                        <option value="processing">Processing</option>
+                                        <option value="shipped">Shipped</option>
+                                        <option value="delivered" selected>Delivered</option>
+                                        <option value="cancelled">Cancelled</option>
+                                    </select>
+                                </td>
+                                <td class="text-end">$899.99</td>
+                                <td class="text-center">
+                                    <button class="btn btn-sm btn-pink">Submit</button>
+                                </td>
+                            </tr>
+                            <!-- Mock Order 4 -->
+                            <tr>
+                                <th scope="row">#ORD-1021</th>
+                                <td>David Brown</td>
+                                <td>2025-10-24</td>
+                                <td>
+                                    <select class="form-select form-select-sm" aria-label="Order status">
+                                        <option value="processing">Processing</option>
+                                        <option value="shipped">Shipped</option>
+                                        <option valueD="delivered">Delivered</option>
+                                        <option value="cancelled" selected>Cancelled</option>
+                                    </select>
+                                </td>
+                                <td class="text-end">$75.00</td>
+                                <td class="text-center">
+                                    <button class="btn btn-sm btn-pink">Submit</button>
+                                </td>
+                            </tr>
+                            <!-- Mock Order 5 -->
+                            <tr>
+                                <th scope="row">#ORD-1020</th>
+                                <td>Eva Davis</td>
+                                <td>2025-10-22</td>
+                                <td>
+                                    <select class="form-select form-select-sm" aria-label="Order status">
+                                        <option value="processing" selected>Processing</option>
+                                        <option value="shipped">Shipped</option>
+                                        <option value="delivered">Delivered</option>
+                                        <option value="cancelled">Cancelled</option>
+                                    </select>
+                                </td>
+                                <td class="text-end">$230.00</td>
+                                <td class="text-center">
+                                    <button class="btn btn-sm btn-pink">Submit</button>
+Z                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        
+    </main>
+    
+    <!-- Footer -->
+    <footer class="container text-center mt-5 py-4 border-top" style="border-color: #CCB7AE !important;">
+        <p style="color: #706677;">&copy; 2025 Logistics Co. Admin Panel</p>
+    </footer>
+
+    <!-- Bootstrap JS Bundle CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" xintegrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
+

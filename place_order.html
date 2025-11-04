@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SupplyLink | Place Order</title>
+  <link rel="stylesheet" href="place_order.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="nav-left">
+      <h1>SupplyLink</h1>
+      <nav>
+        <a href="/customer_dashboard.html">Dashboard</a>
+        <a href="/customer_dashboard.html" class="active">Place Order</a>
+        <a href="track_orders.html">Track Orders</a>
+        <a href="order_history.html">Order History</a>
+      </nav>
+    </div>
+    <div class="nav-right">
+      <button class="icon-btn" title="Notifications">🔔</button>
+      <button class="logout-btn">Log Out</button>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="order-page">
+    <h2>Place a New Order</h2>
+    <p class="subtext">Select the products you'd like to order and specify quantities.</p>
+
+    <!-- Product Catalog -->
+    <div class="catalog">
+      <div class="product-card" data-id="1" data-name="Industrial Bolts" data-price="12.50">
+        <img src="https://via.placeholder.com/120" alt="Bolts">
+        <h3>Industrial Bolts</h3>
+        <p>$12.50 / pack</p>
+        <label for="qty1">Quantity:</label>
+        <select id="qty1" class="qty-select">
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="5">5</option>
+          <option value="10">10</option>
+        </select>
+      </div>
+
+      <div class="product-card" data-id="2" data-name="Steel Plates" data-price="30.00">
+        <img src="https://via.placeholder.com/120" alt="Steel Plates">
+        <h3>Steel Plates</h3>
+        <p>$30.00 / unit</p>
+        <label for="qty2">Quantity:</label>
+        <select id="qty2" class="qty-select">
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="5">5</option>
+          <option value="10">10</option>
+        </select>
+      </div>
+
+      <div class="product-card" data-id="3" data-name="Copper Wire" data-price="8.00">
+        <img src="https://via.placeholder.com/120" alt="Copper Wire">
+        <h3>Copper Wire</h3>
+        <p>$8.00 / roll</p>
+        <label for="qty3">Quantity:</label>
+        <select id="qty3" class="qty-select">
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="5">5</option>
+          <option value="10">10</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Place Order Button -->
+    <button class="place-btn" id="placeOrderBtn">Place Order</button>
+  </main>
+
+  <!-- Confirmation Modal -->
+  <div id="confirmationModal" class="modal">
+    <div class="modal-content">
+      <h3>Order #1052 has been placed successfully!</h3>
+      <p>Estimated delivery: <strong>5 days</strong></p>
+      <button id="closeModal">Close</button>
+    </div>
+  </div>
+
+  <footer>© 2025 SupplyLink | Customer Dashboard</footer>
+  <script src="place_order.js"></script>
+</body>
+</html>

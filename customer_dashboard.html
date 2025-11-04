@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SupplyLink | Customer Dashboard</title>
+  <link rel="stylesheet" href="cust_styles.css" />
+</head>
+<body>
+ 
+  <header class="navbar">
+    <div class="nav-left">
+      <h1>SupplyLink</h1>
+      <nav>
+        <a href="/customer_dashboard.html" class="active">Dashboard</a>
+        <a href="/place_order.html">Place Order</a>
+        <a href="#">Track Orders</a>
+        <a href="#">Order History</a>
+      </nav>
+    </div>
+    <div class="nav-right">
+      <button class="icon-btn" title="Notifications">🔔</button>
+      <button class="logout-btn" >Log Out</button>
+    </div>
+  </header>
+
+
+  <main class="dashboard">
+    <h2>Welcome back, <span class="username">John Doe</span>!</h2>
+
+    <div class="card-container">
+      <div class="card" onclick="navigateTo('place-order.html')">
+        <h3>Place Order</h3>
+        <p>Create a new product or supply order</p>
+      </div>
+      <div class="card" onclick="navigateTo('track-orders.html')">
+        <h3>Track Orders</h3>
+        <p>View and monitor your ongoing orders</p>
+      </div>
+      <div class="card" onclick="navigateTo('order-history.html')">
+        <h3>Order History</h3>
+        <p>Check details of your past orders</p>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    © 2025 SupplyLink Customer Dashboard
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

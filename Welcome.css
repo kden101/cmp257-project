@@ -1,0 +1,88 @@
+body {
+            font-family: 'Inter', sans-serif;
+            background-color: #D6CFCB;
+            color: #565264;
+            overflow-x: hidden;
+        }
+
+        .navbar {
+            background-color: #706677;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+        }
+
+        .navbar-brand {
+            color: #FFFFFF;
+            font-weight: 700;
+        }
+
+        .navbar-brand:hover {
+            color: #CCB7AE;
+        }
+
+        .navbar .nav-link {
+            color: #D6CFCB;
+            font-weight: 500;
+            margin-right: 0.5rem;
+        }
+
+        .navbar .nav-link:hover,
+        .navbar .nav-link:focus {
+            color: #FFFFFF;
+        }
+
+        .navbar .nav-link.active {
+            color: #FFFFFF;
+            font-weight: 700;
+        }
+        
+        .navbar .btn-outline-light {
+            color: #D6CFCB;
+            border-color: #D6CFCB;
+        }
+
+        .navbar .btn-outline-light:hover {
+            color: #706677;
+            background-color: #D6CFCB;
+            border-color: #D6CFCB;
+        }
+        
+        h1, h2, h4, h5 {
+            font-weight: 700;
+            color: #565264;
+        }
+
+        /* --- New Dashboard Card Styles --- */
+        .metric-card {
+            background-color: #FFFFFF;
+            border: 1px solid #CCB7AE;
+            border-radius: 0.25rem;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(86, 82, 100, 0.05);
+        }
+        
+        .metric-card:hover {
+            border-color: #A6808C;
+            box-shadow: 0 4px 12px rgba(86, 82, 100, 0.1);
+            transform: translateY(-3px);
+        }
+
+        .metric-card .card-value {
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: #565264;
+            margin-bottom: 0.25rem;
+        }
+        
+        .metric-card .card-title {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: #706677;
+            margin-bottom: 0;
+        }
+        
+        .metric-card .card-icon {
+            font-size: 2.5rem;
+            color: #A6808C;
+        }

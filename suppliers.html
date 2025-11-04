@@ -1,78 +1,121 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Supplier Orders - SupplyLink Admin</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <script src="suppliers.js"></script>
+
+  <title>Supplier Orders - SupplyLink Admin</title>
+  <link rel="stylesheet" type="text/css" href="/Welcome.css">
 </head>
-<body class="p-4">
-
-  <h2>Supplier Orders</h2>
-  <p class="text-muted">Track and add supplier orders</p>
-
-  <!-- Order Form -->
-  <form id="orderForm" class="mb-4">
-    <div class="row g-3">
-      <div class="col-md-3">
-        <label>Material:</label>
-        <select id="material" class="form-select">
-          <option value="">Select...</option>
-          <option value="Steel Sheets">Steel Sheets</option>
-          <option value="Aluminum Bars">Aluminum Bars</option>
-          <option value="Copper Wire">Copper Wire</option>
-        </select>
-      </div>
-
-      <div class="col-md-2">
-        <label>Quantity (kg):</label>
-        <input type="number" id="quantity" class="form-control">
-      </div>
-
-      <div class="col-md-3">
-        <label>Supplier:</label>
-        <select id="supplier" class="form-select">
-          <option value="">Select...</option>
-          <option value="ABC Metals Ltd">ABC Metals Ltd</option>
-          <option value="Global Supplies Co">Global Supplies Co</option>
-          <option value="Prime Materials Inc">Prime Materials Inc</option>
-        </select>
-      </div>
-
-      <div class="col-md-3">
-        <label>Expected Delivery:</label>
-        <input type="date" id="deliveryDate" class="form-control">
-      </div>
-
-      <div class="col-md-1 d-flex align-items-end">
-        <button type="button" class="btn btn-primary w-100" onclick="addOrder()">Add</button>
+<body class="p-3">
+  <nav class="navbar navbar-expand-lg mb-4">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">LOGISTICS CO. - ADMIN</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#adminNavbar" aria-controls="adminNavbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="adminNavbar">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="/Admin_Dashboard.html">Dashboard</a></li>
+          <li class="nav-item"><a class="nav-link" href="/Manage_Order.html">Manage Orders</a></li>
+          <li class="nav-item"><a class="nav-link" href="/production_log.html">Production Log</a></li>
+          <li class="nav-item"><a class="nav-link active" href="/suppliers.html">Suppliers</a></li>
+          <li class="nav-item"><a class="nav-link" href="/reports.html">Reports</a></li>
+        </ul>
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="/login.html"><i class="bi bi-box-arrow-right me-1"></i> Log Out</a></li>
+        </ul>
       </div>
     </div>
-  </form>
+  </nav>
 
-  <!-- Table -->
-  <table class="table table-bordered" id="ordersTable">
-    <tr class="table-dark">
-      <th>Order ID</th>
-      <th>Material</th>
-      <th>Quantity</th>
-      <th>Supplier</th>
-      <th>Expected Delivery</th>
-      <th>Status</th>
-    </tr>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12">
+        <h2>Supplier Orders</h2>
+        <p class="text-muted">Track and add supplier orders</p>
+      </div>
+    </div>
 
-    <tr>
-      <td>SO-1001</td>
-      <td>Steel Sheets</td>
-      <td>500</td>
-      <td>ABC Metals Ltd</td>
-      <td>2025-11-05</td>
-      <!-- FIXED: Added (this) parameter -->
-      <td>In Transit <button onclick="markDelivered(this)">✔</button></td>
-    </tr>
-  </table>
+    <div class="row mb-4">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Add New Order</h5>
+            <div class="row g-2">
+              <div class="col-md-3 col-sm-6">
+                <label class="form-label">Material:</label>
+                <select id="material" class="form-select">
+                  <option value="">Select...</option>
+                  <option value="Steel Sheets">Steel Sheets</option>
+                  <option value="Aluminum Bars">Aluminum Bars</option>
+                  <option value="Copper Wire">Copper Wire</option>
+                </select>
+              </div>
+              <div class="col-md-2 col-sm-6">
+                <label class="form-label">Quantity (kg):</label>
+                <input type="number" id="quantity" class="form-control">
+              </div>
+              <div class="col-md-3 col-sm-6">
+                <label class="form-label">Supplier:</label>
+                <select id="supplier" class="form-select">
+                  <option value="">Select...</option>
+                  <option value="ABC Metals Ltd">ABC Metals Ltd</option>
+                  <option value="Global Supplies Co">Global Supplies Co</option>
+                  <option value="Prime Materials Inc">Prime Materials Inc</option>
+                </select>
+              </div>
+              <div class="col-md-3 col-sm-6">
+                <label class="form-label">Delivery Date:</label>
+                <input type="date" id="deliveryDate" class="form-control">
+              </div>
+              <div class="col-md-1 col-12">
+                <label class="form-label d-md-block d-sm-none">&nbsp;</label>
+                <button type="button" class="btn btn-primary w-100" onclick="addOrder()">Add</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
+    <!-- Orders Table -->
+    <div class="row">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Current Orders</h5>
+            <div class="table-responsive">
+              <table class="table table-bordered" id="ordersTable">
+                <thead class="table-dark">
+                  <tr>
+                    <th>Order ID</th>
+                    <th>Material</th>
+                    <th>Quantity</th>
+                    <th>Supplier</th>
+                    <th>Delivery Date</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>SO-1001</td>
+                    <td>Steel Sheets</td>
+                    <td>500</td>
+                    <td>ABC Metals Ltd</td>
+                    <td>2025-11-05</td>
+                    <td>In Transit <button class="btn btn-sm btn-success ms-2" onclick="markDelivered(this)">✔</button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/suppliers.js"></script>
 </body>
 </html>

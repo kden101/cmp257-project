@@ -5,66 +5,128 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Reports & Analytics - SupplyLink Admin</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
-<script src="libs/Chart.min.js"></script>   <!-- chart library -->
-<script src="js/data.js"></script>          <!-- shared dummy data -->
-
+  <link rel="stylesheet" type="text/css" href="./Welcome.css">
 </head>
-<body class="p-4">
+<body class="p-3">
+  <nav class="navbar navbar-expand-lg mb-4">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">LOGISTICS CO. - ADMIN</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#adminNavbar" aria-controls="adminNavbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="adminNavbar">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="./Admin_Dashboard.html">Dashboard</a></li>
+          <li class="nav-item"><a class="nav-link" href="./Manage_Order.html">Manage Orders</a></li>
+          <li class="nav-item"><a class="nav-link" href="./production_log.html">Production Log</a></li>
+          <li class="nav-item"><a class="nav-link" href="./suppliers.html">Suppliers</a></li>
+          <li class="nav-item"><a class="nav-link active" href="/reports.html">Reports</a></li>
+        </ul>
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="/login.html"><i class="bi bi-box-arrow-right me-1"></i> Log Out</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
-  <h2>📊 Reports & Analytics</h2>
-  <p class="text-muted">View insights and performance data</p>
+  <div class="container-fluid">
+    <div class="row mb-4">
+      <div class="col-12">
+        <h2>Reports & Analytics</h2>
+        <p class="text-muted">View insights and performance data</p>
+      </div>
+    </div>
 
-  <div class="row">
-    <!-- Orders per Month Chart -->
-    <div class="col-md-6 mb-4">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Orders per Month</h5>
-          <canvas id="ordersChart"></canvas>
+    <div class="row mb-4">
+
+      <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-3">
+        <div class="card h-100">
+          <div class="card-header">
+            <h5 class="card-title mb-0">Orders per Month</h5>
+          </div>
+          <div class="card-body">
+            <div id="ordersChart" class="chart-container"></div>
+          </div>
+        </div>
+      </div>
+      
+ 
+      <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-3">
+        <div class="card h-100">
+          <div class="card-header">
+            <h5 class="card-title mb-0">Supplier Performance</h5>
+          </div>
+          <div class="card-body">
+            <div id="suppliersChart" class="chart-container"></div>
+          </div>
         </div>
       </div>
     </div>
 
-    <!-- Fastest Suppliers Chart -->
-    <div class="col-md-6 mb-4">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Fastest Suppliers</h5>
-          <canvas id="suppliersChart"></canvas>
+
+    <div class="row mb-4">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-header">
+            <h5 class="card-title mb-0">Quick Statistics</h5>
+          </div>
+          <div class="card-body">
+            <div class="row">
+
+              <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-12 mb-3">
+                <div class="text-center p-3 border rounded bg-light">
+                  <h3 class="text-primary mb-1">42</h3>
+                  <p class="mb-0 text-muted">Orders This Month</p>
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-12 mb-3">
+                <div class="text-center p-3 border rounded bg-light">
+                  <h3 class="text-success mb-1">4.5</h3>
+                  <p class="mb-0 text-muted">Avg Delivery Days</p>
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-12 mb-3">
+                <div class="text-center p-3 border rounded bg-light">
+                  <h3 class="text-warning mb-1">8</h3>
+                  <p class="mb-0 text-muted">In Production</p>
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-12 mb-3">
+                <div class="text-center p-3 border rounded bg-light">
+                  <h3 class="text-info mb-1">34</h3>
+                  <p class="mb-0 text-muted">Completed Orders</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- Summary Table -->
-  <div class="card">
-    <div class="card-body">
-      <h5 class="card-title">Quick Statistics</h5>
-      <table class="table table-striped">
-        <tr>
-          <th>Metric</th>
-          <th>Value</th>
-        </tr>
-        <tr>
-          <td>Total Orders This Month</td>
-          <td>42</td>
-        </tr>
-        <tr>
-          <td>Average Delivery Time</td>
-          <td>4.5 days</td>
-        </tr>
-        <tr>
-          <td>Orders in Production</td>
-          <td>8</td>
-        </tr>
-        <tr>
-          <td>Completed Orders</td>
-          <td>34</td>
-        </tr>
-      </table>
+    <div class="row">
+      <div class="col-lg-4 col-md-6 col-sm-12 mb-3">
+        <div class="card">
+          <div class="card-body">
+            <h6 class="card-title">Top Products</h6>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                Metal Frame A
+                <span class="badge bg-primary">24 orders</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                Aluminum Panel
+                <span class="badge bg-primary">18 orders</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                Copper Component
+                <span class="badge bg-primary">12 orders</span>
+              </li>
+            </ul>
+          </div>
+      </div>
     </div>
-  </div>
-
-<script src="/reports.js"></script></body>
+    </div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="reports.js"></script>
+</body>
 </html>
