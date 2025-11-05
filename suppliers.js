@@ -32,7 +32,6 @@
         document.getElementById("deliveryDate").value = "";
       }
     }
-
     function markDelivered(button) {
       button.parentNode.innerHTML = "Delivered!";
     }

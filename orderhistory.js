@@ -2,7 +2,7 @@ function showOrderDetails(orderId) {
     const orderIdDisplay = document.getElementById("modal-order-id");
     const timelineList = document.getElementById("modal-timeline-content");
 
-    // Simple sample data
+    // sample data
     const orderTimelines = {
         "1020": ["Materials Ordered", "In Production", "Quality Check", "Completed"],
         "1015": ["Materials Ordered", "In Production", "Quality Check", "Completed"]

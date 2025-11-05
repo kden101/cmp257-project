@@ -197,7 +197,7 @@ function createSuppliersChart() {
     globalBar.innerText = "Global Co (28)";
     chartContainer.appendChild(globalBar);
     
-    // bar for Prime Inc
+    //bar for Prime Inc
     var primeBar = document.createElement("div");
     primeBar.className = "supplier-bar";
     primeBar.style.width = "110px"; // 22 * 5
