@@ -1,8 +1,6 @@
 window.onload = function() {
-  // Add CSS styles for charts
   addChartStyles();
-  
-  // Orders per Month
+
   const orders = [25, 32, 28, 38, 45, 42];
   const months = ["Jun", "Jul", "Aug", "Sep", "Oct", "Nov"];
   const ordersDiv = document.getElementById("ordersChart");
@@ -27,7 +25,7 @@ window.onload = function() {
     ordersDiv.appendChild(barWrapper);
   }
 
-  // Fastest Suppliers
+
   const suppliers = ["ABC Metals", "Global Co", "Prime Inc"];
   const deliveries = [35, 28, 22];
   const colors = ["#A6808C", "#706677", "#565264"];
