@@ -2,11 +2,9 @@
 //Customer Login
 document.addEventListener('DOMContentLoaded', function() {
   const loginForm = document.querySelector('.login-form');
-  
   if (loginForm) {
     loginForm.addEventListener('submit', function(e) {
       e.preventDefault();
-      
       //we chk if it's admin login page
       if (window.location.pathname.includes('admin')) {
         window.location.href = '/Admin_Dashboard.html';
@@ -15,7 +13,6 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
   }
-  
   //Signup
   const signupForm = document.getElementById('signupForm');
   
