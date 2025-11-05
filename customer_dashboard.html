@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SupplyLink | Customer Dashboard</title>
   <link rel="stylesheet" href="cust_styles.css" />
-</head>
+  </head>
 <body>
  
   <header class="navbar">
@@ -29,18 +29,28 @@
     <h2>Welcome back, <span class="username">John Doe</span>!</h2>
 
     <div class="card-container">
-      <div class="card" onclick="navigateTo('place-order.html')">
-        <h3>Place Order</h3>
-        <p>Create a new product or supply order</p>
-      </div>
-      <div class="card" onclick="navigateTo('track-orders.html')">
-        <h3>Track Orders</h3>
-        <p>View and monitor your ongoing orders</p>
-      </div>
-      <div class="card" onclick="navigateTo('order-history.html')">
-        <h3>Order History</h3>
-        <p>Check details of your past orders</p>
-      </div>
+      
+      <a href="/place_order.html" class="card-link">
+        <div class="card">
+          <h3>🛒 Place Order</h3>
+          <p>Create a new product or supply order</p>
+        </div>
+      </a>
+      
+      <a href="trackorder.html" class="card-link">
+        <div class="card">
+          <h3>🚚 Track Orders</h3>
+          <p>View and monitor your ongoing orders</p>
+        </div>
+      </a>
+
+      <a href="orderhistory.html" class="card-link">
+        <div class="card">
+          <h3>🕰️ Order History</h3>
+          <p>Check details of your past orders</p>
+        </div>
+      </a>
+
     </div>
   </main>
 
