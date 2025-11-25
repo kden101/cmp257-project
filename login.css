@@ -19,7 +19,6 @@ body{
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
-
 .login-container {
   flex: 1;
   display: flex;
@@ -27,14 +26,13 @@ body{
   align-items: center;
   width: 100%;
 }
-
 .login-form {
   background: white;
-  padding: 30px;
+  padding: 50px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  width: 300px;
-  
+  /* width: 300px; */
+  width: 40%;
   display: flex;
   flex-direction: column;
   align-items: center;  
@@ -82,13 +80,13 @@ body{
 }
 
 .login-banner {
-  background-color: #706677;  /* same as main banner color */
+  background-color: #706677;  
   color: white;
   width: 100%;
   text-align: center;
   padding: 10px 0;
   
-  margin: -30px 0px 20px 0px; /* pulls it to top edge of form box */
+  margin: -30px 0px 20px 0px;
   font-size: 20px;
   font-weight: bold;
   letter-spacing: 1px;
@@ -107,7 +105,7 @@ body{
   padding: 30px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  width: 350px;
+  width: 40%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -158,7 +156,6 @@ body{
   background-color: #CCB7AE;
 }
 
-/* Error message styling */
 .error {
   color: #b30000;
   font-size: 0.9rem;
@@ -167,11 +164,62 @@ body{
   text-align: center;
 }
 
-/* Optional subtle animation for inputs */
 .signup-form input:invalid {
   border-color: #e57373;
 }
 
 .signup-form input:valid {
   border-color: #81c784;
+}
+
+.top-banner {
+  background-color: #A6808C;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  font-family: 'Inter', sans-serif;
+  width: 100%;
+}
+
+.banner-left h1 {
+  font-size: 24px;
+  font-weight: 800;
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+.banner-right a {
+  color: white;
+  text-decoration: none;
+  margin-left: 20px;
+  font-weight: 600;
+  
+}
+
+.banner-right a:hover {
+  color: #D6CFCB;
+}
+
+@media (max-width: 600px) {
+  .top-banner {
+    flex-direction: column;
+    text-align: center;
+  }
+  .banner-right {
+    margin-top: 10px;
+  }
+  .banner-right a {
+    display: inline-block;
+    margin: 5px 10px;
+  }
+}
+
+.top-banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 48px;
 }

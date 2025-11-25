@@ -5,8 +5,6 @@ body {
   padding: 0;
   color: #565264;
 }
-
-/* Navbar */
 .navbar {
   background-color: #706677;
   display: flex;
@@ -71,7 +69,6 @@ body {
   color: #565264;
 }
 
-/* Page Layout */
 .order-page {
   text-align: center;
   padding: 50px 20px;
@@ -88,7 +85,6 @@ body {
   color: #706677;
 }
 
-/* Product Catalog */
 .catalog {
   display: flex;
   justify-content: center;
@@ -132,7 +128,6 @@ body {
   border: 1px solid #ccc;
 }
 
-/* Button */
 .place-btn {
   background-color: #706677;
   color: white;
@@ -149,7 +144,6 @@ body {
   background-color: #A6808C;
 }
 
-/* Modal */
 .modal {
   display: none;
   position: fixed;
@@ -190,7 +184,6 @@ body {
   background-color: #A6808C;
 }
 
-/* Footer */
 footer {
   text-align: center;
   padding: 15px;
